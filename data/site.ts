@@ -1,5 +1,6 @@
 export const site = { name: 'The Study Verse', shortName: 'TSV', email: 'ash@thestudyverse.co.uk', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://thestudyverse.co.uk' };
 export const socials = { discord: 'https://discord.gg/C5SgDQVyDA', tiktok: 'https://www.tiktok.com/@4zhfn', instagram: 'https://www.instagram.com/studywith4zhfn/', youtube: 'https://www.youtube.com/@4zhfn', linktree: 'https://linktr.ee/4zhfn' };
+export const chemistryPaymentLink = 'https://buy.stripe.com/4gM5kv2TXa026jg8HK2Fa00';
 export const creatorPosts = [
   { label: 'A moment from Instagram', platform: 'Instagram', href: 'https://www.instagram.com/reel/DU0ByqkjAhV/?stkn=azg4Nzg3c2lsbndn' },
   { label: 'Study with Ash', platform: 'TikTok', href: 'https://vm.tiktok.com/ZGdQbjtV1/' },
@@ -16,7 +17,7 @@ export const community = { inviteCode: 'C5SgDQVyDA', fallbackMembers: 2233, fall
 ] };
 export const masterclass = {
   slug: 'gcse-chemistry', title: 'GCSE Chemistry Masterclass', price: 39.99, currency: 'GBP', capacity: 200, hours: 10,
-  status: 'booking-soon' as 'booking-soon' | 'scheduled' | 'sold-out', dateConfirmed: false,
+  status: 'scheduled' as 'booking-soon' | 'scheduled' | 'sold-out', dateConfirmed: false,
   dates: ['2026-10-24', '2026-10-25'], dateLabel: '24–25 October 2026', dailyTime: '13:00-18:00', timeLabel: '1–6 PM each day', format: 'Live online', deliveryPlatform: 'TBC',
   recording: 'tbc' as 'tbc' | 'included' | 'not-included', presenter: { name: '', confirmed: false, credential: '' },
   paperOne: ['Atomic structure and the periodic table', 'Bonding, structure and properties', 'Quantitative chemistry', 'Chemical changes', 'Energy changes'],

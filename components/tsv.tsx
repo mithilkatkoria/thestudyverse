@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { creatorPosts, masterclass, priceLabel, socials, site } from '@/data/site';
+import { chemistryPaymentLink, creatorPosts, masterclass, priceLabel, socials, site } from '@/data/site';
 
 const nav = [['Masterclasses','/masterclasses'],['Community','/community'],['Resources','/resources'],['Tutoring','/tutoring'],['About','/about']];
 export function SectionLabel({ children }: { children: React.ReactNode }) { return <span className="eyebrow">{children}</span>; }
@@ -25,11 +25,6 @@ export function NewsletterForm({ enabled }: { enabled: boolean }) {
   return <form className="newsletter-form" onSubmit={submit}><label htmlFor="newsletter-email">Your email address</label><div className="input-row"><input id="newsletter-email" name="email" type="email" placeholder="you@example.com" autoComplete="email" required/><button type="submit" disabled={state==='loading'}>{state==='loading'?'Joining…':'Join the list ↗'}</button></div><label className="consent"><input type="checkbox" name="consent" required/><span>I agree to receive occasional updates from The Study Verse. Unsubscribe any time.</span></label><output className="form-status">{message}</output></form>;
 }
 export function BookingButton({ className = '' }: { className?: string }) {
-  const [loading,setLoading] = useState(false); const [error,setError] = useState('');
-  const paymentLink=process.env.NEXT_PUBLIC_STRIPE_CHEMISTRY_PAYMENT_LINK;
-  const checkoutAvailable=process.env.NEXT_PUBLIC_CHECKOUT_ENABLED==='true';
-  async function checkout() { setLoading(true); setError(''); try { const r=await fetch('/api/checkout',{method:'POST'}); const data=await r.json(); if(!r.ok || !data.url) throw new Error(data.error || 'Booking is unavailable right now.'); window.location.assign(data.url); } catch(e) { setError(e instanceof Error ? e.message : 'Please try again.'); setLoading(false); } }
-  if (masterclass.status === 'scheduled' && paymentLink && !checkoutAvailable) return <a className={`button button-dark ${className}`} href={paymentLink} target="_blank" rel="noopener noreferrer">Reserve your place · {priceLabel()} ↗</a>;
-  if (masterclass.status === 'scheduled' && checkoutAvailable) return <div><button className={`button button-dark ${className}`} onClick={checkout} disabled={loading}>{loading?'Opening checkout…':`Reserve your place · ${priceLabel()} ↗`}</button>{error&&<p className="form-status" role="alert">{error}</p>}</div>;
+  if (masterclass.status === 'scheduled') return <a className={`button button-dark ${className}`} href={chemistryPaymentLink} target="_blank" rel="noopener noreferrer">Reserve your place · {priceLabel()} ↗</a>;
   return <div className="booking-soon"><strong>{masterclass.status === 'sold-out' ? 'All places booked' : 'Booking opens soon'}</strong><span>Join the update list to hear when places become available.</span><Link href="/#newsletter">Get updates ↗</Link></div>;
 }

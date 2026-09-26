@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 72" role="img" aria-labelledby="title desc">
+  <title id="title">The Study Verse</title>
+  <desc id="desc">An open book and a star beside The Study Verse wordmark.</desc>
+  <rect x="4" y="4" width="64" height="64" rx="17" fill="#100c18"/>
+  <path d="M15 29c7.5-2.4 14.5-.6 21 4.4V55c-6.5-5-13.5-6.8-21-4.4V29Z" fill="#f5f0ff"/>
+  <path d="M57 29c-7.5-2.4-14.5-.6-21 4.4V55c6.5-5 13.5-6.8 21-4.4V29Z" fill="#b69af8"/>
+  <path d="M36 12.5c.8 4.8 2.7 6.7 7.5 7.5-4.8.8-6.7 2.7-7.5 7.5-.8-4.8-2.7-6.7-7.5-7.5 4.8-.8 6.7-2.7 7.5-7.5Z" fill="#d9c7ff"/>
+  <text x="85" y="28" fill="#7659c6" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="3.5">THE</text>
+  <text x="84" y="54" fill="#100c18" font-family="DM Sans, Arial, sans-serif" font-size="27" font-weight="650" letter-spacing="-1.2">Study Verse</text>
+</svg>

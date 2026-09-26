@@ -1,5 +1,5 @@
 export const site = { name: 'The Study Verse', shortName: 'TSV', email: 'ash@thestudyverse.co.uk', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://thestudyverse.co.uk' };
-export const socials = { discord: 'https://discord.gg/C5SgDQVyDA', tiktok: 'https://www.tiktok.com/@4zhfn', instagram: 'https://www.instagram.com/4zhfn/', youtube: 'https://www.youtube.com/@4zhfn', linktree: 'https://linktr.ee/4zhfn' };
+export const socials = { discord: 'https://discord.gg/C5SgDQVyDA', tiktok: 'https://www.tiktok.com/@4zhfn', instagram: 'https://www.instagram.com/studywith4zhfn/', youtube: 'https://www.youtube.com/@4zhfn', linktree: 'https://linktr.ee/4zhfn' };
 export const creatorPosts = [
   { label: 'A moment from Instagram', platform: 'Instagram', href: 'https://www.instagram.com/reel/DU0ByqkjAhV/?stkn=azg4Nzg3c2lsbndn' },
   { label: 'Study with Ash', platform: 'TikTok', href: 'https://vm.tiktok.com/ZGdQbjtV1/' },

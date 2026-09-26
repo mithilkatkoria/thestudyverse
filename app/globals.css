@@ -33,3 +33,28 @@ body:not(:has(.reference-home)) #main{padding-top:96px}
 .page-hero h1,.page-section h2,.footer-lead h2{font-weight:500}
 .page-hero h1 em,.footer-lead h2 em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:#7957e8}
 .page-hero{background:radial-gradient(700px 400px at 88% 10%,rgba(169,131,255,.13),transparent 70%)}
+
+/* A quieter, more typographic frame around every page. */
+.site-header{background:rgba(250,249,252,.94);border:1px solid rgba(39,24,57,.11);box-shadow:0 12px 40px rgba(28,18,41,.09)}
+.nav-inner{min-height:61px;padding:7px 10px 7px 18px}
+.logo{gap:.65rem;font-size:.91rem;font-weight:700;letter-spacing:-.055em}
+.logo-icon{width:2.35rem;height:2.35rem;background:transparent;color:#7452d4}
+.logo-icon svg{width:31px;height:31px}
+.desktop-nav{gap:clamp(.8rem,1.8vw,1.6rem)}
+.desktop-nav a{font:600 .75rem "DM Sans",sans-serif;text-transform:none;letter-spacing:-.015em;color:#4f4856;transition:color .2s}
+.desktop-nav a:hover{color:#7653d5}
+.nav-pill{min-height:42px;padding:0 20px;font-size:.76rem;box-shadow:none}
+.site-footer{padding:105px 0 30px;background:#100d15}
+.footer-lead{display:grid;grid-template-columns:1.25fr .75fr;column-gap:6vw;border-top:1px solid rgba(255,255,255,.23);padding-top:24px}
+.footer-lead .eyebrow{grid-column:1/-1;color:#b49cdd;font:600 10px "Space Mono",monospace;letter-spacing:.12em}
+.footer-lead h2{font-size:clamp(65px,8.2vw,150px);line-height:.88;letter-spacing:-.085em;margin:48px 0 0}
+.footer-lead h2 em{color:#c9b4fa}
+.footer-lead>a{align-self:end;justify-self:end;font-size:clamp(18px,1.7vw,26px);font-weight:500;letter-spacing:-.035em;border-bottom:1px solid #a995bd;padding-bottom:10px}
+.footer-columns{grid-template-columns:1.1fr 1fr .8fr;gap:6vw;margin:120px 0 100px}
+.footer-columns>div{gap:.95rem}
+.footer-columns small{margin-bottom:1.2rem;font:600 10px "Space Mono",monospace;color:#b79ccd;letter-spacing:.1em}
+.footer-columns a{font-size:clamp(15px,1.2vw,18px);font-weight:500;letter-spacing:-.025em;color:#f4eff9;transition:color .2s,transform .2s}
+.footer-columns a:hover{color:#cbb5ff;transform:translateX(4px)}
+.footer-bottom{border-color:rgba(255,255,255,.18);padding-top:22px;color:#b2a5bf;font:500 10px "Space Mono",monospace;letter-spacing:.07em}
+.footer-bottom a:hover{color:#fff}
+@media(max-width:760px){.nav-inner{min-height:58px}.logo{font-size:.88rem}.footer-lead{display:block}.footer-lead h2{font-size:clamp(63px,13vw,95px);margin:40px 0 35px}.footer-lead>a{font-size:19px}.footer-columns{grid-template-columns:repeat(2,1fr);gap:55px 24px;margin:90px 0 75px}.footer-columns>div:last-child{grid-column:1/-1}.footer-bottom{font-size:9px;line-height:1.6}.site-footer{padding-top:80px}}

@@ -11,3 +11,21 @@
 .gallery-heading{font-size:clamp(3.5rem,7vw,8rem)!important;line-height:.95;letter-spacing:-.075em;font-weight:550;margin:4rem 0!important}.creator-gallery{display:grid;grid-template-columns:1.3fr .7fr;gap:4vw}.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.video-grid figure{margin:0}.video-grid video{width:100%;aspect-ratio:9/16;background:#0b0910;object-fit:contain;display:block}.video-grid figcaption{border-top:1px solid var(--line);padding-top:.8rem;margin-top:.8rem;font-size:.65rem;font-weight:700;letter-spacing:.14em}.post-list{border-top:1px solid var(--line)}.post-list>.eyebrow{margin:1rem 0 2rem}.post-list a{display:grid;grid-template-columns:2rem 1fr auto;gap:.5rem;border-top:1px solid var(--line);padding:1.2rem 0;align-items:center}.post-list strong{font-weight:550}.post-list span,.post-list small{font-size:.7rem;color:var(--muted)}.post-list a:hover strong{color:var(--deep)}@media(max-width:760px){.creator-gallery{grid-template-columns:1fr}.post-list{margin-top:3rem}.gallery-heading{font-size:clamp(3.5rem,12vw,6rem)!important}}
 @media(max-width:480px){.product-header h2{font-size:clamp(3.5rem,16vw,6rem)}}
 @media(max-width:480px){.page-hero h1{font-size:clamp(3.9rem,14vw,6rem)}.page-section h2 a[href^="mailto:"]{font-size:clamp(1.6rem,7vw,2.4rem);overflow-wrap:anywhere}}
+
+/* Shared chrome adapted to the supplied Study Verse visual reference. */
+:root{--ink:#0b0810;--paper:#f7f4fb;--soft:#efebf5;--lav:#a983ff;--deep:#7957e8;--muted:#6f6878;--line:rgba(14,9,22,.11)}
+.site-header{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 30px));z-index:100;background:rgba(250,248,252,.82);border:1px solid rgba(255,255,255,.78);border-radius:999px;box-shadow:0 15px 55px rgba(42,26,66,.10);backdrop-filter:blur(22px) saturate(160%);font-family:"DM Sans",sans-serif}
+.nav-inner{min-height:56px;padding:7px 9px 7px 16px;gap:1.2rem}
+.logo{font-size:.9rem;font-weight:600;letter-spacing:-.035em;white-space:nowrap;line-height:1}
+.logo-icon{width:36px;height:36px;background:transparent;color:var(--ink);font-size:inherit}
+.logo-icon svg{display:block;width:36px;height:36px;overflow:visible}
+.logo-icon .mark-orbit{transform-origin:18px 18px;animation:mark-orbit 9s linear infinite}
+@keyframes mark-orbit{to{transform:rotate(360deg)}}
+.desktop-nav{gap:clamp(.8rem,2vw,1.65rem)}
+.desktop-nav a{font:700 .6rem "Space Mono",monospace;text-transform:uppercase;letter-spacing:.12em;color:#736a7c}
+.nav-pill{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;background:var(--ink);color:#fff;font-size:.78rem;font-weight:600;box-shadow:0 10px 28px rgba(11,8,16,.18)}
+.mobile-nav{border-radius:0 0 25px 25px;background:#faf8fc}
+body:not(:has(.reference-home)) #main{padding-top:96px}
+.site-footer{font-family:"DM Sans",sans-serif;background:#0a0810}
+@media(max-width:760px){.site-header{top:10px}.nav-inner{min-height:54px}.logo{font-size:.79rem}.nav-actions{display:none}.menu-toggle{display:flex;align-items:center;gap:.45rem;min-height:42px;padding:0 .8rem;border:0;border-radius:99px;background:var(--ink);color:#fff;font:700 .65rem "Space Mono",monospace;text-transform:uppercase}.menu-toggle span{font-size:1rem}}
+@media(prefers-reduced-motion:reduce){.logo-icon .mark-orbit{animation:none}}

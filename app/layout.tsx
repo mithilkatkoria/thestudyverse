@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: { type: 'website', siteName: 'The Study Verse', title: 'The Study Verse', description: 'Study smarter. Move faster.', images: ['/opengraph-image.png'] },
   twitter: { card: 'summary_large_image', images: ['/opengraph-image.png'] },
 };
-export const viewport: Viewport = { themeColor: '#f7f5f9', colorScheme: 'light' };
+export const viewport: Viewport = { themeColor: '#f7f4fb', colorScheme: 'light' };
 const schema = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'Organization', name: site.name, url: site.url, email: site.email, sameAs: [socials.tiktok, socials.instagram, socials.youtube, socials.discord] },
   { '@type': 'WebSite', name: site.name, url: site.url },

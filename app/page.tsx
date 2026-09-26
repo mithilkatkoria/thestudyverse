@@ -1,13 +1,48 @@
-import Link from 'next/link';
-import { BrandArtwork, CommunityPreview, CreatorGallery, CreatorMedia, NewsletterForm, SectionLabel } from '@/components/tsv';
-import { masterclass, scheduleSummary, priceLabel, socials } from '@/data/site';
-export default function Home() { return <>
-  <section className="hero wrap"><div className="hero-copy"><SectionLabel>THE STUDY VERSE · BUILT BY STUDENTS</SectionLabel><h1>Study smarter.<br /><em>Move faster.</em></h1><p>Masterclasses, practical study tools and a community of students working towards the same goal.</p><div className="actions"><Link className="button button-dark" href="/masterclasses/gcse-chemistry">Explore GCSE Chemistry <span>↗</span></Link><a className="text-link" href={socials.discord} target="_blank" rel="noopener noreferrer">Join the community <span>↗</span></a></div></div><div className="hero-art"><BrandArtwork /><div className="hero-art-caption"><span>THE STUDY VERSE / 001</span><span>LEARN IT. USE IT.</span></div></div><div className="hero-bottom"><span>01 / A BETTER WAY TO PREPARE</span><span>SCROLL TO EXPLORE ↓</span></div></section>
-  <section className="statement-section"><div className="wrap statement-grid"><SectionLabel>THE IDEA</SectionLabel><p>Knowing the content is only half the job. The other half is knowing <em>what to do with it</em> when the paper is in front of you.</p></div></section>
-  <section className="product-section" id="masterclass"><div className="wrap"><div className="section-top"><SectionLabel>MASTERCLASS / 001</SectionLabel><span className="section-top-note">THE FIRST LIVE SESSION</span></div><div className="product-header"><div><h2>GCSE<br /><em>Chemistry.</em></h2><p>Ten focused hours across Paper 1 and Paper 2. Work through the specification, tackle exam questions and practise answering accurately at speed.</p></div><div className="product-symbol" aria-hidden="true"><span>C</span><small>06 / CHEMISTRY</small></div></div><div className="fact-row"><div><strong>10</strong><span>HOURS TOTAL</span></div><div><strong>02</strong><span>LIVE DAYS</span></div><div><strong>1 + 2</strong><span>GCSE PAPERS</span></div><div><strong>{priceLabel()}</strong><span>ONE PRICE</span></div></div><div className="product-footer"><p>{scheduleSummary()} Limited to {masterclass.capacity} students.</p><Link className="button button-lavender" href="/masterclasses/gcse-chemistry">View the masterclass <span>↗</span></Link></div></div></section>
-  <section className="community-section"><div className="wrap community-grid"><div><SectionLabel>STUDY TOGETHER</SectionLabel><h2>One place<br />to <em>lock in.</em></h2><p>The Study Verse began as a space to get through exam season together. Drop into the Lounge, join a Study VC or turn up for a Study Call.</p><div className="actions"><Link className="button button-light" href="/community">Explore the community <span>↗</span></Link><a className="text-link" href={socials.discord} target="_blank" rel="noopener noreferrer">Join Discord ↗</a></div></div><CommunityPreview /></div><div className="wrap community-strip"><span>LOUNGE</span><span>STUDY VCs</span><span>STUDY CALLS</span><span>TSV VIP</span></div></section>
-  <section className="creator-section wrap"><div className="creator-copy"><SectionLabel>ASH / @4ZHFN</SectionLabel><h2>It started<br />with <em>Ash.</em></h2><p>Study, lifestyle and motivation content grew into something bigger: a student built community with room for learning that actually helps on exam day.</p><Link className="underlined-link" href="/about">Get to know The Study Verse ↗</Link><div className="creator-socials"><a href={socials.tiktok} target="_blank" rel="noopener noreferrer">TikTok ↗</a><a href={socials.instagram} target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href={socials.youtube} target="_blank" rel="noopener noreferrer">YouTube ↗</a></div></div><CreatorMedia /></section>
-  <section className="page-section" style={{background:"#f3f0f7"}}><div className="wrap"><div className="section-top"><SectionLabel>FROM ASH&apos;S FEED</SectionLabel><span className="section-top-note">STUDY / LIFESTYLE / MOTIVATION</span></div><h2 className="gallery-heading">The work behind<br />the words.</h2><CreatorGallery /></div></section>
-  <section className="ecosystem-section"><div className="wrap"><div className="section-top"><SectionLabel>WHAT&apos;S NEXT</SectionLabel><span className="section-top-note">THE STUDY VERSE IS GROWING</span></div><h2>More ways<br />to <em>make progress.</em></h2><div className="editorial-list">{[['01','Masterclasses','Live, exam-focused learning','/masterclasses'],['02','Courses','More in-depth learning, in development','/courses'],['03','Resources','Revision materials, in development','/resources'],['04','Tutoring','1-to-1 support, in development','/tutoring'],['05','TSV VIP','A premium community experience, in development','/vip']].map(([n,t,d,h])=><Link href={h} key={n}><span>{n}</span><strong>{t}</strong><small>{d}</small><b>↗</b></Link>)}</div></div></section>
-  <section className="newsletter-section" id="newsletter"><div className="wrap newsletter-grid"><div><SectionLabel>OCCASIONAL EMAILS, USEFUL IDEAS</SectionLabel><h2>Stay in<br /><em>the loop.</em></h2><p>One or two useful emails a month. No daily spam.</p></div><NewsletterForm enabled={Boolean(process.env.RESEND_API_KEY && (process.env.RESEND_SEGMENT_ID || process.env.RESEND_AUDIENCE_ID))} /></div></section>
-  </>; }
+import { CreatorGallery, NewsletterForm } from '@/components/tsv';
+import { community, masterclass, priceLabel, scheduleSummary } from '@/data/site';
+import { afterNewsletter, beforeNewsletter } from './referenceMarkup';
+import './reference.css';
+
+export const revalidate = 900;
+
+function escapeHtml(value: string) {
+  return value.replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character] || character);
+}
+
+async function getMembers() {
+  try {
+    const response = await fetch(`https://discord.com/api/v10/invites/${community.inviteCode}?with_counts=true`, {
+      next: { revalidate: 900 },
+      signal: AbortSignal.timeout(2500),
+    });
+    if (!response.ok) throw new Error('Discord unavailable');
+    const data = await response.json();
+    if (typeof data.approximate_member_count !== 'number') throw new Error('Count unavailable');
+    return { value: data.approximate_member_count as number, live: true };
+  } catch {
+    return { value: community.fallbackMembers, live: false };
+  }
+}
+
+export default async function Home() {
+  const count = await getMembers();
+  const markup = beforeNewsletter
+    .replaceAll('__MEMBERS__', count.value.toLocaleString('en-GB'))
+    .replaceAll('__COUNT_QUALIFIER__', count.live ? 'students currently' : 'students at last snapshot')
+    .replaceAll('__SNAPSHOT_LABEL__', count.live ? '' : '(last snapshot)')
+    .replaceAll('__PRICE__', escapeHtml(priceLabel()))
+    .replaceAll('__CAPACITY__', String(masterclass.capacity))
+    .replaceAll('__SCHEDULE__', escapeHtml(scheduleSummary()));
+  const marker = '<section class="future"';
+  const index = markup.indexOf(marker);
+  const first = index >= 0 ? markup.slice(0, index) : markup;
+  const second = index >= 0 ? markup.slice(index) : '';
+  const tail = afterNewsletter.replaceAll('__PRICE__', escapeHtml(priceLabel()));
+  return <div className="reference-home" id="top">
+    <div dangerouslySetInnerHTML={{ __html: first }} />
+    <section className="social-clips" aria-labelledby="social-clips-title"><div className="shell"><div className="section-kicker">REAL CONTENT FROM ASH</div><h2 id="social-clips-title">WATCH THE <em>WORK.</em></h2><CreatorGallery /></div></section>
+    <div dangerouslySetInnerHTML={{ __html: second }} />
+    <section className="newsletter" id="newsletter" aria-labelledby="newsletter-title"><div className="shell newsletter-card"><div className="newsletter-copy"><div className="section-kicker">LOW-NOISE EMAIL</div><h2 id="newsletter-title">USEFUL EMAILS.<br /><em>NOT SPAM.</em></h2><p>New masterclasses, useful study drops and important TSV updates. Around one or two emails a month.</p><div className="newsletter-note">Unsubscribe any time</div></div><div className="signup"><NewsletterForm enabled={Boolean(process.env.RESEND_API_KEY && (process.env.RESEND_SEGMENT_ID || process.env.RESEND_AUDIENCE_ID))} /></div></div></section>
+    <div dangerouslySetInnerHTML={{ __html: tail }} />
+  </div>;
+}

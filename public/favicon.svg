@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Study Verse temporary mark"><rect width="64" height="64" rx="13" fill="#0b0910"/><path d="M13 19h38v7H36v26h-8V26H13z" fill="#bda7fa"/><circle cx="48" cy="46" r="4" fill="#bda7fa"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Study Verse orbit mark">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dccfff"/><stop offset=".52" stop-color="#a77cff"/><stop offset="1" stop-color="#ff91d9"/></linearGradient></defs>
+  <rect width="64" height="64" rx="18" fill="#08070d"/>
+  <circle cx="32" cy="32" r="18" fill="url(#g)"/>
+  <ellipse cx="32" cy="32" rx="28" ry="10.5" fill="none" stroke="#f7f2ff" stroke-width="2.2" transform="rotate(-17 32 32)"/>
+  <circle cx="52" cy="23" r="3.2" fill="#fff"/>
+</svg>

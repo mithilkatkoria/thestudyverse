@@ -256,5 +256,11 @@ var(--paper)}
 .reference-home .hero-pathways span{grid-column:1/-1;color:#8d809b;font:500 9px "Space Mono",monospace;letter-spacing:.05em}
 .reference-home .hero-pathways b{font-size:17px;font-weight:400;line-height:1}
 @media(max-width:760px){.reference-home .hero .eyebrow{font-size:11px;gap:7px;margin-bottom:24px}.reference-home .hero .eyebrow-line{width:14px}.reference-home .eyebrow-separator{margin:0 1px}.reference-home .hero-pathways{margin-top:27px}.reference-home .hero-pathways a{font-size:11px;padding-right:6px}.reference-home .hero-pathways a+a{padding-left:9px}.reference-home .hero-pathways a+a:hover{padding-left:12px}}
+@media(max-width:760px){
+  .reference-home .final-content{width:100%;min-width:0;max-width:100%;padding:24px}
+  .reference-home .final-content h2{font-size:clamp(46px,14vw,72px);line-height:.82;letter-spacing:-.085em;overflow-wrap:anywhere}
+  .reference-home .final-buttons{flex-direction:column;align-items:stretch;max-width:270px;margin-inline:auto}
+  .reference-home .final-buttons a{width:100%;justify-content:center}
+}
 @media(max-width:355px){.reference-home .hero .eyebrow{font-size:10px;gap:5px}.reference-home .hero .eyebrow-line{width:10px}}
 @media(max-width:480px){.reference-home .community-center{top:49%}}

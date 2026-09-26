@@ -59,3 +59,12 @@ body:not(:has(.reference-home)) #main{padding-top:96px}
 .footer-bottom{border-color:rgba(255,255,255,.18);padding-top:22px;color:#b2a5bf;font:500 10px "Space Mono",monospace;letter-spacing:.07em}
 .footer-bottom a:hover{color:#fff}
 @media(max-width:760px){.nav-inner{min-height:58px}.logo{font-size:.88rem}.footer-lead{display:block}.footer-lead h2{font-size:clamp(63px,13vw,95px);margin:40px 0 35px}.footer-lead>a{font-size:19px}.footer-columns{grid-template-columns:repeat(2,1fr);gap:55px 24px;margin:90px 0 75px}.footer-columns>div:last-child{grid-column:1/-1}.footer-bottom{font-size:9px;line-height:1.6}.site-footer{padding-top:80px}}
+
+/* The Study Verse book and star identity. */
+.logo{gap:.65rem}
+.logo-icon,.logo-icon img{display:block;width:36px;height:36px;flex:none}
+.logo-wordmark{display:flex;flex-direction:column;justify-content:center;gap:2px;line-height:1}
+.logo-wordmark span{font-size:8px;font-weight:700;letter-spacing:.24em;color:#7659c6}
+.logo-wordmark strong{font-size:14px;font-weight:650;letter-spacing:-.055em;color:#100c18}
+.footer-brand{display:block;width:190px;height:auto}
+@media(max-width:760px){.logo-wordmark strong{font-size:12.5px}.logo-wordmark span{font-size:7px}}

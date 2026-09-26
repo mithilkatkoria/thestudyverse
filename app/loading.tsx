@@ -1,0 +1,1 @@
+export default function Loading(){return <section className="wrap not-found" aria-live="polite"><span className="eyebrow">THE STUDY VERSE</span><h1>Loading<span aria-hidden="true">…</span></h1></section>}

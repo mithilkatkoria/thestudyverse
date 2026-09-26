@@ -240,4 +240,21 @@ var(--paper)}
 @media(max-width:480px){.reference-home .hero h1{font-size:clamp(58px,18vw,76px)}.reference-home .hero-art{height:430px}.reference-home .community-center .big{font-size:clamp(72px,19vw,97px)}.reference-home .community-card{width:44%;min-height:120px}.reference-home .join-community{width:90%;bottom:18px}.reference-home .join-community .btn{width:100%}.reference-home .newsletter-form .input-row{flex-direction:column;border-radius:22px}.reference-home .newsletter-form .input-row input{min-height:45px}.reference-home .creator-media{min-height:470px}}
 
 .reference-home .hero-copy{padding-bottom:0}
+
+/* The hero introduction uses the brand's human voice rather than a technical label. */
+.reference-home .hero .eyebrow{gap:10px;margin-bottom:29px;color:#29232e;font:600 13px "DM Sans",sans-serif;letter-spacing:-.015em;text-transform:none}
+.reference-home .hero .eyebrow-line{width:22px;height:2px;flex:none;background:#8f6ceb;border-radius:2px}
+.reference-home .hero .eyebrow-line:before{display:none}
+.reference-home .eyebrow-name{white-space:nowrap}
+.reference-home .eyebrow-separator{width:3px;height:3px;flex:none;margin:0 3px;border-radius:50%;background:#9d8caa}
+.reference-home .eyebrow-purpose{color:#77717d;font-weight:500;white-space:nowrap}
+.reference-home .hero-pathways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:570px;gap:0;margin-top:38px;border-top:1px solid rgba(38,28,48,.18)}
+.reference-home .hero-pathways a{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:10px 4px;padding:15px 11px 10px 0;color:#29232e;font-size:12px;font-weight:600;letter-spacing:-.025em;transition:color .2s,padding-left .2s}
+.reference-home .hero-pathways a+a{padding-left:13px;border-left:1px solid rgba(38,28,48,.12)}
+.reference-home .hero-pathways a:hover{color:#7653d5;padding-left:6px}
+.reference-home .hero-pathways a+a:hover{padding-left:18px}
+.reference-home .hero-pathways span{grid-column:1/-1;color:#8d809b;font:500 9px "Space Mono",monospace;letter-spacing:.05em}
+.reference-home .hero-pathways b{font-size:17px;font-weight:400;line-height:1}
+@media(max-width:760px){.reference-home .hero .eyebrow{font-size:11px;gap:7px;margin-bottom:24px}.reference-home .hero .eyebrow-line{width:14px}.reference-home .eyebrow-separator{margin:0 1px}.reference-home .hero-pathways{margin-top:27px}.reference-home .hero-pathways a{font-size:11px;padding-right:6px}.reference-home .hero-pathways a+a{padding-left:9px}.reference-home .hero-pathways a+a:hover{padding-left:12px}}
+@media(max-width:355px){.reference-home .hero .eyebrow{font-size:10px;gap:5px}.reference-home .hero .eyebrow-line{width:10px}}
 @media(max-width:480px){.reference-home .community-center{top:49%}}

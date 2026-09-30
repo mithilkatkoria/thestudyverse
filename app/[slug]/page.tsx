@@ -6,7 +6,6 @@ import { site, socials, legal } from '@/data/site';
 const pages = {
   vip: { title: 'TSV VIP', eyebrow: 'A CLOSER CIRCLE', intro: 'A premium Study Verse membership is in development. The VIP area already has a place in our Discord; membership details are coming soon.', description: 'We are shaping what TSV VIP becomes with the community. Pricing and specific benefits will be shared only when they are confirmed.' },
   courses: { title: 'Courses', eyebrow: 'COMING NEXT', intro: 'More room to go deep. Study Verse courses are in development.', description: 'We are working towards structured learning that students can return to in their own time. The first details will be announced here and by email.' },
-  resources: { title: 'Resources', eyebrow: 'REVISION, MADE USEFUL', intro: 'Practical revision resources are on the way.', description: 'We want every resource to earn its place on your desk. PDFs, exam practice and study tools will appear here as they are ready.' },
   tutoring: { title: 'Tutoring', eyebrow: 'MORE PERSONAL SUPPORT', intro: 'Tutoring and 1-to-1 sessions are planned for The Study Verse.', description: 'Availability, subjects, teaching team and pricing are still being confirmed. For an enquiry, contact Ash directly.' },
 } as const;
 type Slug = keyof typeof pages;

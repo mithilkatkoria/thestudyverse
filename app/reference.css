@@ -239,6 +239,27 @@ var(--paper)}
 @media(max-width:760px){.reference-home .hero-stage{background-position:center 36%}}
 @media(max-width:480px){.reference-home .hero h1{font-size:clamp(58px,18vw,76px)}.reference-home .hero-art{height:430px}.reference-home .community-center .big{font-size:clamp(72px,19vw,97px)}.reference-home .community-card{width:44%;min-height:120px}.reference-home .join-community{width:90%;bottom:18px}.reference-home .join-community .btn{width:100%}.reference-home .newsletter-form .input-row{flex-direction:column;border-radius:22px}.reference-home .newsletter-form .input-row input{min-height:45px}.reference-home .creator-media{min-height:470px}}
 
+/* Two useful paths directly below the opening story. */
+.reference-home .early-pathways{padding:clamp(3.5rem,6vw,6rem) 0;background:#f7f4fb}
+.reference-home .early-pathways-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:1.4rem}
+.reference-home .early-pathways-head p{max-width:29rem;color:#6b6273;line-height:1.5;margin:0;font-size:.94rem}
+.reference-home .early-pathways-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.reference-home .early-pathway{position:relative;isolation:isolate;overflow:hidden;min-height:370px;border-radius:27px;padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s ease,box-shadow .25s ease}
+.reference-home .early-pathway:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(31,17,47,.16)}
+.reference-home .early-pathway-ask{background:#d7c4ff;color:#1c1230}
+.reference-home .early-pathway-ask::before{content:"";position:absolute;inset:12% 15% auto auto;width:65%;aspect-ratio:1;border:1px solid rgba(58,35,104,.32);border-radius:50%;transform:rotate(25deg) scaleX(.65);z-index:-1}
+.reference-home .early-pathway-ask::after{content:"?";position:absolute;right:12%;top:19%;font-family:"Instrument Serif",serif;font-size:clamp(11rem,18vw,20rem);line-height:1;color:rgba(77,46,135,.13);z-index:-1}
+.reference-home .early-pathway-creator{background:#1d1428;color:#fff}
+.reference-home .early-pathway-creator::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,9,21,.93),rgba(13,9,21,.22)),url('/assets/ash-hours-frame.jpg') center 30%/cover;z-index:-1}
+.reference-home .early-pathway-label{font:700 .62rem "Space Mono",monospace;letter-spacing:.12em}
+.reference-home .early-pathway strong{font-size:clamp(4rem,7vw,7.8rem);line-height:.82;letter-spacing:-.09em;font-weight:560}
+.reference-home .early-pathway strong em{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-.04em}
+.reference-home .early-pathway-bottom{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid currentColor;padding-top:1rem;font-size:.87rem;font-weight:650}
+.reference-home .early-pathway-bottom b{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:currentColor;font-size:0}
+.reference-home .early-pathway-bottom b::before{content:"↗";font-size:1.1rem;color:#fff}
+.reference-home .early-pathway-creator .early-pathway-bottom b{background:#fff}.reference-home .early-pathway-creator .early-pathway-bottom b::before{color:#1d1428}
+@media(max-width:760px){.reference-home .early-pathways-head{display:block}.reference-home .early-pathways-head p{margin-top:.8rem}.reference-home .early-pathways-grid{grid-template-columns:1fr}.reference-home .early-pathway{min-height:300px}.reference-home .early-pathway strong{font-size:clamp(4.5rem,14vw,7rem)}}
+
 .reference-home .hero-copy{padding-bottom:0}
 
 /* The hero introduction uses the brand's human voice rather than a technical label. */
